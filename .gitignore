@@ -1,0 +1,7 @@
+bin/
+main
+*.swp
+test_embedding
+run
+.vscode/
+test_qdma
