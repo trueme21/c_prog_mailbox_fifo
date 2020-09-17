@@ -1,0 +1,122 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALIGN_STRUCT	include/typedefs.h	21;"	d
+ALIGN_STRUCT	include/typedefs.h	32;"	d
+AVX2NEON_H	include/avx2neon.h	2;"	d
+BACKWARD_SIMD_H	include/backward_simd.h	2;"	d
+CC	Makefile	/^CC = \/tools\/Xilinx\/SDK\/2018.3\/gnu\/aarch64\/lin\/aarch64-linux\/bin\/aarch64-linux-gnu-g++$/;"	m
+CCFLAGS	Makefile	/^CCFLAGS = -O3$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS = -std=c++11$/;"	m
+DEBUG	test_qdma_embedding.c	15;"	d	file:
+DEBUG_H	include/debug.h	2;"	d
+EMB_START_ADDR	ndp_env.h	8;"	d
+EXE	Makefile	/^EXE = main$/;"	m
+FORCE_INLINE	include/typedefs.h	20;"	d
+FORCE_INLINE	include/typedefs.h	27;"	d
+FORCE_INLINE	include/typedefs.h	30;"	d
+FORWARD_SIMD_H	include/forward_simd.h	2;"	d
+HAS__builtin_popcount	include/avx2neon.h	15;"	d
+HAS__builtin_popcountll	include/avx2neon.h	16;"	d
+HOST_ACK_ADDR	qdma_api.h	18;"	d
+INCLUDES	Makefile	/^INCLUDES  := $/;"	m
+INC_DIR	Makefile	/^INC_DIR = include$/;"	m
+LIBRARIES	Makefile	/^LIBRARIES := \/tools\/Xilinx\/SDK\/2018.3\/gnu\/aarch64\/lin\/aarch64-linux\/aarch64-linux-gnu\/libc\/lib$/;"	m
+LIBS	Makefile	/^LIBS =$/;"	m
+MAX_PRINT	test.c	7;"	d	file:
+MBOX_EMPTY	ndp_env.h	26;"	d
+MBOX_SIZE	ndp_env.h	15;"	d
+MBOX_START_ADDR	ndp_env.h	5;"	d
+NDP_COMPILE	main.c	8;"	d	file:
+NDP_ENV_H_	ndp_env.h	2;"	d
+NDP_SLS_H	include/ndp_sls.h	2;"	d
+OBJS	Makefile	/^OBJS = $(OBJ_DIR)\/main.o $(OBJ_DIR)\/backward_simd.o $(OBJ_DIR)\/forward_simd.o $(OBJ_DIR)\/ndp_sls.o$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR = bin$/;"	m
+OP_BWD	ndp_env.h	22;"	d
+OP_FWD	ndp_env.h	21;"	d
+OP_INIT	ndp_env.h	20;"	d
+OP_INIT_CPY	ndp_env.h	24;"	d
+OP_KILL	ndp_env.h	23;"	d
+OUTPUT_SIZE	ndp_env.h	16;"	d
+OUTPUT_START_ADDR	ndp_env.h	7;"	d
+PHYS_ADDR_ACK	qdma_api.h	17;"	d
+PHYS_ADDR_EMB_TABLE	qdma_api.h	21;"	d
+PHYS_ADDR_FWD_OUTPUT	qdma_api.h	20;"	d
+PHYS_ADDR_MAIL	qdma_api.h	16;"	d
+QDMA_API_H__	qdma_api.h	2;"	d
+QUERY1_OFFSET	test_qdma_embedding.c	17;"	d	file:
+QUERY2_OFFSET	test_qdma_embedding.c	18;"	d	file:
+QUERY3_OFFSET	test_qdma_embedding.c	19;"	d	file:
+QUERY4_OFFSET	test_qdma_embedding.c	20;"	d	file:
+QUERY_START_POINT	ndp_env.h	6;"	d
+QUERY_START_POINT	qdma_api.h	15;"	d
+REG_FC_INIT_QUERY	ndp_env.h	10;"	d
+REG_FC_INIT_RESULT	ndp_env.h	11;"	d
+SIZE_ALIGN	qdma_api.h	22;"	d
+SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
+STRIDY_H	include/stridy.h	2;"	d
+TYPEDEFS_H	include/typedefs.h	14;"	d
+VAL_FC_INIT_QUERY	ndp_env.h	13;"	d
+_MM_HINT_ENTA	include/typedefs.h	/^    _MM_HINT_ENTA = 4, \/* exclusive version of _MM_HINT_NTA *\/$/;"	e	enum:_mm_hint
+_MM_HINT_ET0	include/typedefs.h	/^    _MM_HINT_ET0 = 5,  \/* exclusive version of _MM_HINT_T0 *\/$/;"	e	enum:_mm_hint
+_MM_HINT_ET1	include/typedefs.h	/^    _MM_HINT_ET1 = 6,  \/* exclusive version of _MM_HINT_T1 *\/$/;"	e	enum:_mm_hint
+_MM_HINT_ET2	include/typedefs.h	/^    _MM_HINT_ET2 = 7   \/* exclusive version of _MM_HINT_T2 *\/$/;"	e	enum:_mm_hint
+_MM_HINT_NTA	include/typedefs.h	/^    _MM_HINT_NTA = 0,  \/* load data to L1 and L2 cache, mark it as NTA *\/$/;"	e	enum:_mm_hint
+_MM_HINT_T0	include/typedefs.h	/^    _MM_HINT_T0 = 1,   \/* load data to L1 and L2 cache *\/$/;"	e	enum:_mm_hint
+_MM_HINT_T1	include/typedefs.h	/^    _MM_HINT_T1 = 2,   \/* load data to L2 cache only *\/$/;"	e	enum:_mm_hint
+_MM_HINT_T2	include/typedefs.h	/^    _MM_HINT_T2 = 3,   \/* load data to L2 cache only, mark it as NTA *\/$/;"	e	enum:_mm_hint
+__has_builtin	include/avx2neon.h	14;"	d
+__has_builtin	include/avx2neon.h	18;"	d
+__int32	include/typedefs.h	41;"	d
+__int64	include/typedefs.h	45;"	d
+__m256	include/avx2neon.h	/^} __m256;$/;"	t	typeref:struct:__anon1
+__mmask16	include/typedefs.h	53;"	d
+__mmask64	include/typedefs.h	49;"	d
+__mmask8	include/typedefs.h	57;"	d
+_mm256_add_ps	include/avx2neon.h	/^FORCE_INLINE __m256 _mm256_add_ps(__m256 a, __m256 b)$/;"	f
+_mm256_loadu_ps	include/avx2neon.h	/^FORCE_INLINE __m256 _mm256_loadu_ps (float const * mem_addr)$/;"	f
+_mm256_setzero_ps	include/avx2neon.h	/^FORCE_INLINE __m256 _mm256_setzero_ps(void)$/;"	f
+_mm256_storeu_ps	include/avx2neon.h	/^FORCE_INLINE void _mm256_storeu_ps (float * mem_addr, __m256 a)$/;"	f
+_mm256_sub_ps	include/avx2neon.h	/^FORCE_INLINE __m256 _mm256_sub_ps(__m256 a, __m256 b)$/;"	f
+_mm_hint	include/typedefs.h	/^enum _mm_hint {$/;"	g
+_mm_prefetch	include/avx2neon.h	/^FORCE_INLINE void _mm_prefetch(const void *p, int i)$/;"	f
+ack_polling	qdma_api.h	/^int ack_polling(int fd, off_t mem_offset) {$/;"	f
+ack_polling_bar	qdma_api.h	/^int ack_polling_bar(off_t host_mem_offset) {$/;"	f
+compare	qdma_api.h	/^int static compare (const void* first, const void* second)$/;"	f
+embedding_backward_simd	src/ndp_sls.cpp	/^void embedding_backward_simd(float* grads, unsigned int* indices, unsigned int* offsets, unsigned int indices_size, unsigned int offsets_size, float* d_weights, unsigned int embedding_dim) {$/;"	f
+embedding_forward_simd	src/ndp_sls.cpp	/^void embedding_forward_simd(float* weights, long* indices, long* offsets, bool scale_grad_by_freq,$/;"	f
+embeddingbag_backward_blk128	src/backward_simd.cpp	/^void embeddingbag_backward_blk128(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension, float* grads, float* d_weights, unsigned int* offsets, unsigned int* indices) {$/;"	f
+embeddingbag_backward_blk16	src/backward_simd.cpp	/^void embeddingbag_backward_blk16(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension, float* grads, float* d_weights, unsigned int* offsets, unsigned int* indices) {$/;"	f
+embeddingbag_backward_blk32	src/backward_simd.cpp	/^void embeddingbag_backward_blk32(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension, float* grads, float* d_weights, unsigned int* offsets, unsigned int* indices) {$/;"	f
+embeddingbag_backward_blk64	src/backward_simd.cpp	/^void embeddingbag_backward_blk64(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension, float* grads, float* d_weights, unsigned int* offsets, unsigned int* indices) {$/;"	f
+embeddingbag_forward_blk128	src/forward_simd.cpp	/^void embeddingbag_forward_blk128(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension,$/;"	f
+embeddingbag_forward_blk16	src/forward_simd.cpp	/^void embeddingbag_forward_blk16(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension,$/;"	f
+embeddingbag_forward_blk32	src/forward_simd.cpp	/^void embeddingbag_forward_blk32(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension,$/;"	f
+embeddingbag_forward_blk64	src/forward_simd.cpp	/^void embeddingbag_forward_blk64(unsigned int offsets_size, unsigned int indices_size, unsigned int dimension,$/;"	f
+get2df	include/stridy.h	/^inline T* get2df(T* p, const unsigned int x, unsigned int y, const unsigned int stride) {$/;"	f
+get2df	include/stridy.h	/^inline T* get2df(T* p, int x, int y, const unsigned int stride) {$/;"	f
+get2df	include/stridy.h	/^inline T* get2df(T* p, long x, int y, const unsigned int stride) {$/;"	f
+get2df	include/stridy.h	/^inline T* get2df(T* p, long x, long y, const unsigned int stride) {$/;"	f
+get2df	include/stridy.h	/^inline T* get2df(T* p, unsigned int x, int y, const unsigned int stride) {$/;"	f
+grad_coalesce_hash	src/ndp_sls.cpp	/^void grad_coalesce_hash(float* grads, long* indices, long* offsets, $/;"	f
+grad_coalesce_sorting	src/ndp_sls.cpp	/^void grad_coalesce_sorting(float* grads, long* indices, long* offsets, $/;"	f
+is_aligned	qdma_api.h	24;"	d
+is_aligned_uint	test_qdma_embedding.c	28;"	d	file:
+likely	include/typedefs.h	37;"	d
+main	main.c	/^int main()$/;"	f
+main	test.c	/^int main(int argc, char *argv[])$/;"	f
+main	test_qdma_embedding.c	/^int main(int argc, char *argv[])$/;"	f
+printVector	include/debug.h	/^void printVector(T* vector, int size) {$/;"	f
+read_block_data	qdma_api.h	/^void read_block_data(int fd, off_t mem_offset, unsigned int size1, T* rdata) {$/;"	f
+test_main	test.c	/^int test_main(int argc, char *argv[])$/;"	f
+test_main	test_qdma_embedding.c	/^int test_main(int argc, char *argv[]) {$/;"	f
+unlikely	include/typedefs.h	38;"	d
+vect_f32	include/avx2neon.h	/^    float32x4_t vect_f32[2];$/;"	m	struct:__anon1
+vreinterpretq_f32_m128	include/avx2neon.h	27;"	d
+vreinterpretq_m128_f32	include/avx2neon.h	26;"	d
+write_block_bulk_concat2	qdma_api.h	/^void write_block_bulk_concat2(int fd, off_t mem_offset, $/;"	f
+write_block_bulk_data	qdma_api.h	/^void write_block_bulk_data(int fd, off_t mem_offset, unsigned int size1, T* wdata) {$/;"	f
+write_block_data_msg4b	qdma_api.h	/^void write_block_data_msg4b(int fd, off_t mem_offset, unsigned int wdata) {$/;"	f
