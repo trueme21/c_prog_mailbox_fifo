@@ -3,25 +3,13 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
+#include "ndp_env.h"
 
 #define NDP_COMPILE
 
 #ifdef NDP_COMPILE
     #include "include/ndp_sls.h"
 #endif
-
-#define MAX_PRINT 32
-
-// Refer to excel file
-#define MBOX_START_ADDR 0xA0020000
-#define QUERY_START_POINT 0x800000000
-#define OUTPUT_START_ADDR 0x80028C000
-#define EMB_START_ADDR 0x8002CD000
-
-#define MBOX_SIZE 64  // TODO
-#define OUTPUT_SIZE 262144
-// EMB_SIZE is defined at initialization
-
 
 int main()
 {
@@ -72,15 +60,13 @@ int main()
 
     bool emb_initialized = false;
 	
-	// sanitizer
-		
 
     printf("Allocation Completed.\n");
     for(;;) {
         sleep(1);
         // mbox_mem_t1: address offset
 		// mbox_mem[mbox_offset + 2] => 0xa0020010
-        if (0x00000000 == (mbox_mem[mbox_offset + 2] & 0x00000001)) {  // Now query always exists in this section
+        if (MBOX_EMPTY != (mbox_mem[mbox_offset + 2] & 0x00000001)) {  // Now query always exists in this section
             // mmap query and parse
             mbox_mem_t1 = mbox_mem[mbox_offset];  // Can be First part of mailbox
             queries_fd = open("/dev/mem", O_RDWR | O_SYNC);
@@ -98,7 +84,7 @@ int main()
             long query_header = queries_mem[queries_offset];
 			unsigned int opcode = query_header & 0x0000FFFF;
 			unsigned int task_id = (query_header >> 16) & 0x0000FFFF;
-            if ((!emb_initialized) && ((opcode == 0x00000001) || (opcode == 0x00000005))) {
+            if ((!emb_initialized) && ((opcode == OP_INIT) || (opcode == OP_INIT_CPY))) {
 				// Initialization(opcode 1), copy weight from host (opcode 5)
                 emb_fd = open("/dev/mem", O_RDWR | O_SYNC);
                 printf("EMB Initialization Start...\n");
@@ -125,7 +111,7 @@ int main()
                 //int rnd=open("/dev/urandom", O_RDONLY);
                 //read(2 * ((float)rnd / (float)(RAND_MAX)) - 1, emb_mem, sizeof(float)*emb_size); // -1 ~ 1
                 //close(rnd);
-				if (opcode == 0x00000001) {
+				if (opcode == OP_INIT) {
 					printf("RAND Initialization...\n");
 					for (int jj = 0 ; jj < emb_size ; ++jj) {
 						emb_mem[embed_offset + jj] = (float)rand()/(float)(RAND_MAX);  // plug in embedding size
@@ -138,7 +124,7 @@ int main()
                 mbox_mem[ack_offset] = (0x00000001) + (task_id << 16);
                 printf("EMB Initialization Finished...\n");
             }
-            else if (emb_initialized && (opcode == 0x00000002)) {  // Forward
+            else if (emb_initialized && (opcode == OP_FWD)) {  // Forward
                 printf("Inference Start...\n");
                 unsigned int offset_size = (query_header >> 32) & 0x000007FF;  // 11 bit
                 unsigned int indices_size = (query_header >> (32 + 11)) & 0x0001FFFF;  // 17bit
@@ -173,7 +159,7 @@ int main()
                 printf("Inference Finished...\n");
             }
 
-            else if (emb_initialized && (opcode == 0x00000003)) {  // Backward
+            else if (emb_initialized && (opcode == OP_BWD)) {  // Backward
                 printf("Backward Start...\n");
                 unsigned int task_id = (query_header >> 16) & 0x0000FFFF;
                 unsigned int offset_size = (query_header >> 32) & 0x000007FF;  // 11 bit
@@ -202,14 +188,14 @@ int main()
                     return -2;
                 }
 
-				float lr = 1;  // TODO: Parameterize
+				float lr = 0.01;  // TODO: Parameterize
 #ifdef NDP_COMPILE
                 grad_coalesce_hash(grad_mem + grad_offset,
                                     query_pl1 + query_pl1_offset +  offset_size, // indices
                                     query_pl1 + query_pl1_offset, // offset
                                     indices_size, offset_size, 
                                     emb_mem + embed_offset, 
-                                    dimension);
+                                    dimension, lr);
 #endif
                 munmap(queries_mem, (queries_page_offset+sizeof(long)));
                 munmap(query_pl1, (query_pl1_page_offset+sizeof(long) * (indices_size + offset_size)));
@@ -222,7 +208,7 @@ int main()
                 printf("Backward Finished...\n");
             }
 
-            else if (opcode == 0x00000004) {  // kill switch
+            else if (opcode == OP_KILL) {  // kill switch
                 printf("TERMINATION!\n");
                 if (emb_initialized) {
                     munmap(emb_mem, (emb_page_offset+emb_size));
